@@ -57,10 +57,6 @@ if len(file_paths) == 0:
 
 for idx, image_path in enumerate(file_paths):
   image = read_data(image_path)
-  # print(np.shape(image))
-  # plt.figure()
-  # plt.imshow(image)
   prediction = model(image[np.newaxis,:])
   wanted_index = np.argmax(prediction.numpy())
-  print(prediction)
   print(str(file_paths[idx]) + ' is - ' + str(CLASS_NAMES[wanted_index]))
