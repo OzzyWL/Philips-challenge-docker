@@ -7,9 +7,11 @@ WORKDIR /src/object_detection_ozzy
 COPY requirements.txt /src
 COPY detect_object.py /src
 COPY validation-images/ /src
-RUN ls -la /src/*
-COPY model.h5 /src
+COPY weights.data-00000-of-00002 /src
+COPY weights.data-00001-of-00002 /src
+COPY weights.index /src
 
+RUN ls -la /src/* 
 RUN pip install --no-cache-dir -r /src/requirements.txt
 
 ## Using unbuffered output with -u
