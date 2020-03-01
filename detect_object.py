@@ -11,7 +11,7 @@ base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,
                                                include_top=False,
                                                weights='imagenet')
 
-dummy_mat = np.zeros((1, 160, 160, 3), dtype=float)
+dummy_mat = np.zeros((1, 160, 160, 3), dtype=float64)
 print(np.shape(dummy_mat))
 
 feature_batch = base_model(dummy_mat)
@@ -31,7 +31,7 @@ model = tf.keras.Sequential([
 ])
 model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4),
               loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True))
-model.load_weights('last_weights')
+model.load_weights('weights')
 # ==================================================================
 
 # helper function to load data
