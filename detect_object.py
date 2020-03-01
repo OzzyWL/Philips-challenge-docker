@@ -15,9 +15,6 @@ dummy_mat = np.zeros((1, 160, 160, 3), dtype=np.float64)
 print(np.shape(dummy_mat))
 
 feature_batch = base_model(dummy_mat)
-print(feature_batch.shape)
-base_model.trainable = True 
-
 global_average_layer = tf.keras.layers.GlobalAveragePooling2D()
 feature_batch_average = global_average_layer(feature_batch)
 # I want to predict for 4 classes
@@ -59,4 +56,4 @@ for idx, image_path in enumerate(file_paths):
   image = read_data(image_path)
   prediction = model(image[np.newaxis,:])
   wanted_index = np.argmax(prediction.numpy())
-  print(str(file_paths[idx]) + ' is - ' + str(CLASS_NAMES[wanted_index]))
+  print(file_paths[idx] + ' is - ' + CLASS_NAMES[wanted_index])
