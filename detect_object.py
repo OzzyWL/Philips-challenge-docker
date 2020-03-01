@@ -11,7 +11,7 @@ base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,
                                                include_top=False,
                                                weights='imagenet')
 
-dummy_mat = np.zeros((1, 160, 160, 3), dtype=float64)
+dummy_mat = np.zeros((1, 160, 160, 3), dtype=np.float64)
 print(np.shape(dummy_mat))
 
 feature_batch = base_model(dummy_mat)
