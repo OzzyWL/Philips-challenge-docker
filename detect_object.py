@@ -2,9 +2,37 @@ import tensorflow as tf
 from tensorflow.keras import Model
 import glob
 import numpy as np
-from tensorflow.keras.models import load_model
 
-model = load_model('model.h5')
+IMG_SHAPE = (160,160, 3)
+
+# re-create model
+# ==================================================================
+base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,
+                                               include_top=False,
+                                               weights='imagenet')
+
+dummy_mat = np.zeros((1, 160, 160, 3), dtype=float)
+print(np.shape(dummy_mat))
+
+feature_batch = base_model(dummy_mat)
+print(feature_batch.shape)
+base_model.trainable = True 
+
+global_average_layer = tf.keras.layers.GlobalAveragePooling2D()
+feature_batch_average = global_average_layer(feature_batch)
+# I want to predict for 4 classes
+prediction_layer = tf.keras.layers.Dense(4)
+prediction_batch = prediction_layer(feature_batch_average)
+
+model = tf.keras.Sequential([
+  base_model,
+  global_average_layer,
+  prediction_layer
+])
+model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4),
+              loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True))
+model.load_weights('last_weights')
+# ==================================================================
 
 # helper function to load data
 def read_data(file_path):
