@@ -31,7 +31,7 @@ model = tf.keras.Sequential([
 ])
 model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4),
               loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True))
-model.load_weights('weights')
+model.load_weights('/src/weights')
 # ==================================================================
 
 # helper function to load data
@@ -48,7 +48,7 @@ def read_data(file_path):
 CLASS_NAMES = ['lamp', 'shaver', 'bottle', 'toothbrush']
 
 # load image
-file_paths = glob.glob('validation-images/*jpg')
+file_paths = glob.glob('/src/*jpg')
 
 if len(file_paths) == 0:
   print('\n=========================================================================================')
