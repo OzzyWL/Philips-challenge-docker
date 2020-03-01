@@ -12,7 +12,7 @@ This repository contains a Dockerfile and scripts to run a neural networks for a
 
 4. **Execute in terminal while in directory where all files were cloned/extracted:**
  *  `docker build .`
- *  `docker images` (verify that image name appears)
+ *  `docker images` (verify that image ID appears)
  *  `docker tag <IMAGE_ID> philips_object_detection:ozzy` (<IMAGE_ID> is the ID for the most recently created image which is outputed from the previous command and the tag is to have a more friendly name and tag)
  *  `docker run philips_object_detection:ozzy`
 
