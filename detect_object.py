@@ -12,8 +12,6 @@ base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,
                                                weights='imagenet')
 
 dummy_mat = np.zeros((1, 160, 160, 3), dtype=np.float64)
-print(np.shape(dummy_mat))
-
 feature_batch = base_model(dummy_mat)
 global_average_layer = tf.keras.layers.GlobalAveragePooling2D()
 feature_batch_average = global_average_layer(feature_batch)
