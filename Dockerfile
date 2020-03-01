@@ -1,6 +1,6 @@
 FROM python:3.6-stretch
 
-## Put everything in current folder
+## Put everything in some folder
 WORKDIR /src/object_detection_ozzy
 
 ## For installing python dependencies
