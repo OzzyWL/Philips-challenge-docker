@@ -17,6 +17,3 @@ This repository contains a Dockerfile and scripts to run a neural networks for a
  *  `docker run philips_object_detection:ozzy`
 
 5. Hopefully get some good predictions.
-
-6. When done with docker image can remove it with  `docker image rm -f <IMAGE_ID>`
-
