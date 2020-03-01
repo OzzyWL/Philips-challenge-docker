@@ -8,7 +8,7 @@ This repository contains a Dockerfile and scripts to run a neural networks for a
 
 2. `git clone` or download and extract this repository.
 
-3. Put all the images you want to predict inside the *validation images* folder (**Note:** the images must be in JPG format)
+3. Put all the images you want to predict inside the *validation-images* folder (**Note:** the should must be in JPG format)
 
 4. **Execute in terminal while in directory where all files were cloned/extracted:**
  *  `docker build .`
