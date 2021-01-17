@@ -1,6 +1,6 @@
 # Philips Challenge Docker Image
 
-This repository contains a Dockerfile and scripts to run a neural networks for a specific use case to try to detect 1 of 4 different Philips products from a given image. For now, inference is done on the CPU.
+This repository contains a Dockerfile and scripts to run a neural network for a specific use case to try to detect 1 of 4 different Philips products from a given image. For now, inference is done on the CPU.
 
 **Instructions on how to get predictions:**
 
